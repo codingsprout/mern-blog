@@ -9,6 +9,7 @@ require('dotenv').config();
 const app = express();
 
 const blogRoutes = require('./routes/blog');
+const authRoutes = require('./routes/auth');
 
 //middleware
 
@@ -31,7 +32,8 @@ mongoose
 
 // routes
 
-app.use(blogRoutes);
+app.use('/api', blogRoutes);
+app.use('/api', authRoutes);
 
 const port = process.env.PORT || 8000;
 
